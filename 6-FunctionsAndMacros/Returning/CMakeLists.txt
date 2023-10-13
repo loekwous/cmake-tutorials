@@ -1,0 +1,11 @@
+function(early_return)
+  foreach(value RANGE 0 10)
+    message("Looping before the early return ${value}")
+    if(${value} GREATER 5)
+      message("Oops we have to exit the function")
+      return()
+    endif()
+  endforeach()
+endfunction()
+
+early_return()

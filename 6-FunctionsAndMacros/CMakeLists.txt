@@ -18,3 +18,7 @@ function(my_function_with_parameters first_name last_name)
 endfunction()
 
 my_function_with_parameters("Loek" "Lankhorst")
+
+add_subdirectory(Scoping)
+add_subdirectory(Returning)
+add_subdirectory(Parsing)
