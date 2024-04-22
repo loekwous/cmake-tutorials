@@ -1,79 +1,39 @@
-# Conditionals
-This project covers conditionals using the IF statement.
-For all the if statements refer to [the documentation](https://cmake.org/cmake/help/latest/command/if.html)
+# Loops
+This project covers loops using the FOREACH and WHILE statement.
+For the full documentation on foreach refer to [foreach](https://cmake.org/cmake/help/latest/command/foreach.html)
 
-# If in general
-The IF statement is defind as follows:
+# FOREACH in general
+The FOREACH statement is defined as follows:
 ```CMake
-if(condition)
+foreach(loop_variable items)
     do_something()
-endif()
+endforeach()
 ```
 
-A lot of extra expressions can be added to the IF statement, but it is easier to read the original documentation in this case.
+A lot of extra expressions can be added to the FOREACH statement, but it is easier to read the original documentation in this case.
 
-# Logical operators
-You can use logical operators like `AND` or `OR` in front of a variable or boolean expression.
-Conditions can be enclosed in parentheses to create a logic group.
-
+# FOREACH operators
 ```CMake
-if(something OR (NOT inverted_something AND (another_condition OR last_condition)))
-    do_something_very_special()
-endif()
-```
-
-# Useful operators
-```CMake
-if(COMMAND some_command)
-    # True if some_command is a callable command
-endif()
+foreach(loop_var RANGE list_length)
+    # loop_var starts with 0 and goes up to (and including) list_length
+endforeach()
 ```
 ```CMake
-if(TARGET some_target)
-    # True if some_target is an existing target
-endif()
+foreach(loop_var start stop [step])
+    # loop_var starts with the value 'start' and goes up to (and inlcuding) 'stop'
+    # with a increment of 'step'
+endforeach()
 ```
-
 ```CMake
-if(DEFINED something_defined)
-    # True if something_defined is defined
-endif()
+foreach(loop_var ZIP_LISTS list_1 [list_n])
+    # you get a 'loop_var' for each list witch contains the value of in that list
+endforeach()
 ```
 
+# WHILE loops
+a while loop in CMake keeps going as long as the condition is true
 ```CMake
-if(EXISTS some_file_or_directory)
-    # True if some_file_or_directory is an existing file or directory
-endif()
+while(condition)
+    # Code is being executed until the condition is false at 'endwhile()'
+endwhile()
 ```
-
-```CMake
-if(some_path PATH_EQUAL another_path)
-    # True if some_path is the same path as another_path
-endif()
-```
-
-```CMake
-if(some_variable_or_string MATCHES ${some_regex_pattern})
-    # True if some_variable_or_string matches the regex pattern
-endif()
-```
-
-## Variable comparison
-Variables can be compared using `LESS`, `GREATER`, `EQUAL`, `LESS_EQUAL` and `GREATER_EQUAL`.
-
-```CMake
-if(some_number LESS another_number)
-    # True if some_number is less than another_number
-endif()
-```
-
-## String comparison
-
-Strings can be compared using string operators.
-| Operator         | Definition                                                            |
-| ---------------- | --------------------------------------------------------------------- |
-| STRLESS          | True if left is lexicographically (alphabetically) less than right    |
-| STRGREATER       | True if left is lexicographically (alphabetically) greater than right |
-| STREQUAL         | True if left is equal to right                                        |
-| STRLESS_EQUAL    | Self explanatory                                                      |
-| STRGREATER_EQUAL | Self explanatory                                                      |
