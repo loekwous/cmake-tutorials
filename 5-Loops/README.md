@@ -5,7 +5,7 @@ For the full documentation on foreach refer to [foreach](https://cmake.org/cmake
 # FOREACH in general
 The FOREACH statement is defined as follows:
 ```CMake
-foreach(loop_varialble items)
+foreach(loop_variable items)
     do_something()
 endforeach()
 ```
