@@ -8,7 +8,7 @@ for another target.
 
 # Executable
 
-An executable target is used to create for example a `.exe` file or for cross platform a `.elf`, `.hex`, or a `.elf`file.
+An executable target is used to generate executable files such as `.exe` files for Windows or `.elf`, `.hex`, or `.bin` files for cross platform applications.
 
 In CMake, an executable target is created using the following command.
 
@@ -20,8 +20,8 @@ The target name is required, whereas the sources are optional and can be specifi
 
 # Libraries
 
-A library can be used to reuse compiled source files for different other libraries or executable.
-A minor nuance are the different type of libraries in CMake.
+A library can be used to reuse compiled sources for different libraries or executables.
+A minor nuance lies in the different type of libraries in CMake.
 
 | Library   | Description                                                                   |
 | --------- | ----------------------------------------------------------------------------- |
